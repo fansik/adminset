@@ -199,8 +199,7 @@ def host_sync(request):
     for g in group:
         group_name = "["+g.name+"]"+"\n"
         ansible_file.write(group_name)
-        get_member = HostGroup.objects.get(name=g)
-        members = get_member.serverList.all()
+        members = Host.objects.filter(group__name=g)
         for m in members:
             group_item = m.hostname+"\n"
             ansible_file.write(group_item)

@@ -81,8 +81,7 @@ def exec_scripts(request):
                     logging.info("==========Shell Start==========")
                     logging.info("User:"+request.user.username)
                     logging.info("Group:"+g)
-                    get_group = HostGroup.objects.get(name=g)
-                    hosts = get_group.serverList.all()
+                    hosts = Host.objects.filter(group__name=g)
                     ret.append(g)
                     for host in hosts:
                         ret.append(host.hostname)
@@ -106,8 +105,7 @@ def exec_scripts(request):
                     logging.info("==========Shell Start==========")
                     logging.info("User:"+request.user.username)
                     logging.info("Group:"+g)
-                    get_group = HostGroup.objects.get(name=g)
-                    hosts = get_group.serverList.all()
+                    hosts = Host.objects.filter(group__name=g)
                     ret.append(g)
                     for host in hosts:
                         ret.append(host.hostname)

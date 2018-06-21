@@ -6,7 +6,6 @@ from api import GetSysData
 from django.contrib.auth.decorators import login_required
 from accounts.permission import permission_verify
 from cmdb.models import Host
-from lib.common import get_dir
 import time
 TIME_SECTOR = (
     86400*7,
@@ -30,7 +29,7 @@ def drop_sys_info():
     :drop sys_info db
     """
     db = GetSysData.connect_db()
-    db.drop_database(get_dir("mongodb_collection"))
+    db.drop_database("sys_info")
     return HttpResponse("ok")
 
 

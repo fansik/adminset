@@ -1,3 +1,5 @@
+//guohongze 修改于 2018-02-09
+
 //此函数用于checkbox的全选和反选
 var checked=false;
 function check_all(form) {
